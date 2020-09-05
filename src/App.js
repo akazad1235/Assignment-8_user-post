@@ -1,12 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from '@material-ui/core';
+import Home from './Components/Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Post from './Components/Post/Post';
+import PostDetails from './Components/Postdetails/PostDetails';
 
 function App() {
   return (
     <div >
-      <Button variant="contained" color="secondary">Hello World</Button>
+      
+      <Router>
+        <Switch>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/post">
+            <Post></Post>
+          </Route>
+          <Route path="/post/:postDetails">
+            <PostDetails></PostDetails>
+          </Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route  path="*">
+            
+          </Route>
+        </Switch>
+      </Router>
+
     </div>
   );
 }
