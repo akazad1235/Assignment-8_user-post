@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Post from './Components/Post/Post';
 import PostDetails from './Components/Postdetails/PostDetails';
+import NotMatch from './Components/NotMatch/NotMatch';
 
 function App() {
   return (
@@ -19,18 +20,12 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/post">
-            <Post></Post>
+          <Route path="/postDetails/:postDetails">
+            <PostDetails/>
           </Route>
-          <Route path="/post/:postDetails">
-            <PostDetails></PostDetails>
-          </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route  path="*">
-            
-          </Route>
+          <Route path="*">
+         <NotMatch></NotMatch>
+        </Route>
         </Switch>
       </Router>
 

@@ -11,7 +11,7 @@ const Post = (props) => {
             <p>id: {id}</p>
             
          {/* <Button variant="contained" color="primary"> more-info </Button> */}
-     <Link to={`/postDetails/${id}`}>More-info{id}</Link>
+     <p><Link to={`/postDetails/${id}`}>More-info{id}</Link></p>
         </div>
     );
 };
