@@ -4,10 +4,11 @@ import Comment from '../Comment/Comment';
 import {Button, Card, CardContent, Typography, CardActions, Container} from '@material-ui/core';
 
 const PostDetails = () => {
-    const{postDetails} = useParams();
+    let {postDetails} = useParams();
 
-    const[posts, setPostDetails] = useState({});
-    const[comment, setComment] = useState([]);
+    const [posts, setPostDetails] = useState({});
+    const [comment, setComment] = useState([]);
+    const [userImg, setUserImg ] = useState([]);
 
     useEffect(() => {
         const url = `https://jsonplaceholder.typicode.com/posts/${postDetails}`;
@@ -21,21 +22,9 @@ const PostDetails = () => {
         .then(res => res.json())
         .then(data => setComment(data))
     }, []);
-
     
+
     return (
-        // <div>
-        //     <p>Post details:{postDetails} </p>
-        //      <h1>{posts.title}</h1>
-        //      <p>{posts.body}</p>
-        //     <p>{posts.id}</p>
-        //     <p>{posts.userId}</p>
-        //     <p>Comment name:</p>
-        //     {
-        //         comment.map(cmt => <Comment comment={cmt}></Comment>)
-        //     }
-            
-        // </div>
         <Container maxWidth="md">
         <Card className = "card" variant="outlined">
             <CardContent>
@@ -47,11 +36,14 @@ const PostDetails = () => {
                     {posts.body}
                 <br />
                 </Typography>
+                <p><strong>Comment</strong></p>
+                <hr/>
             </CardContent>
             
             {
-               comment.map(cmt => <Comment comment={cmt}></Comment>) 
+               comment.map(cmt => <Comment comment={cmt} ></Comment>) 
             }
+            
         </Card>
     </Container>
     );
