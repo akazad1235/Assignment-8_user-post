@@ -23,6 +23,9 @@ function App() {
           <Route path="/postDetails/:postDetails">
             <PostDetails/>
           </Route>
+          <Route exact path="/">
+          <Home/>
+        </Route>
           <Route path="*">
          <NotMatch></NotMatch>
         </Route>
